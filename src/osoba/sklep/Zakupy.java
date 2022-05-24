@@ -1,6 +1,6 @@
-package OsobaSklep;
+package osoba.sklep;
 
-import OsobaSklep.Exceptions.ShopsAreOnlyForWomenException;
+import osoba.sklep.exceptions.ShopsAreOnlyForWomenException;
 
 public class Zakupy {
     private Sklep sklep;

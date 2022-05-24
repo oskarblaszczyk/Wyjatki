@@ -1,6 +1,6 @@
-package OsobaSklep;
+package osoba.sklep;
 
-import OsobaSklep.Exceptions.NoWomenException;
+import osoba.sklep.exceptions.NoWomenException;
 
 import java.util.ArrayList;
 import java.util.List;

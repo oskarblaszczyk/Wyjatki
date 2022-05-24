@@ -1,6 +1,6 @@
-package OsobaSklep;
+package osoba.sklep;
 
-import OsobaSklep.Exceptions.NoHomoHereException;
+import osoba.sklep.exceptions.NoHomoHereException;
 
 public class Randka {
     private Osoba osoba1;

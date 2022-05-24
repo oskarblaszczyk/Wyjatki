@@ -1,4 +1,4 @@
-package OsobaSklep.Exceptions;
+package osoba.sklep.exceptions;
 
 public class ShopsAreOnlyForWomenException extends RuntimeException{
     public ShopsAreOnlyForWomenException(){

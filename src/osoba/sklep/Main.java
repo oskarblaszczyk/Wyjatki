@@ -1,4 +1,4 @@
-package OsobaSklep;
+package osoba.sklep;
 
 // Stworz klase Osoba (imie, nazwisko, miasto, wiek) oraz Sklep (nazwa, miasto)
 // - metoda co zwraca najstarsza kobiete lub NoWomenException jesli brak kobiet na liscie
@@ -10,7 +10,6 @@ package OsobaSklep;
 // progarm powinien to naprawic, ustawiajac danej osobie 18 lat (uzyc wyjatki IllegalArgumentException())
 public class Main {
     public static void main(String[] args) {
-
 
         Osoba o1 = new Osoba("Ala", "Celna", "Warszawa",16, Plec.KOBIETA );
         System.out.println(o1.getWiek());

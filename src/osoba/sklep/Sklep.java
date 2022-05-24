@@ -1,4 +1,4 @@
-package OsobaSklep;
+package osoba.sklep;
 
 public class Sklep {
     private String nazwa;

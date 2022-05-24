@@ -1,4 +1,4 @@
-package OsobaSklep.Exceptions;
+package osoba.sklep.exceptions;
 
 public class NoWomenException extends RuntimeException {
     public NoWomenException() {
