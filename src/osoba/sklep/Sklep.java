@@ -1,8 +1,12 @@
 package osoba.sklep;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Sklep {
     private String nazwa;
     private final String miasto;
+    private List<Osoba> osoby = new ArrayList<>();
 
     public Sklep(String nazwa, String miasto) {
         this.nazwa = nazwa;
@@ -19,6 +23,10 @@ public class Sklep {
 
     public String getMiasto() {
         return miasto;
+    }
+
+    public List<Osoba> getOsoby() {
+        return osoby;
     }
 
     @Override

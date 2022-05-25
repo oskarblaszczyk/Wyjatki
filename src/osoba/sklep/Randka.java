@@ -7,11 +7,13 @@ public class Randka {
     private Osoba osoba2;
 
     public Randka(Osoba osoba1, Osoba osoba2) {
-        if(osoba1.getPlec().equals(osoba2.getPlec())){
+        if(osoba1.getPlec() == osoba2.getPlec()){
             throw new NoHomoHereException("No homo");
         }
         this.osoba1 = osoba1;
         this.osoba2 = osoba2;
+        osoba1.getRandki().add(this);
+        osoba2.getRandki().add(this);
     }
 
 }

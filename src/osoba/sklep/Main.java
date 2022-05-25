@@ -14,7 +14,6 @@ public class Main {
         Osoba o1 = new Osoba("Ala", "Celna", "Warszawa",16, Plec.KOBIETA );
         System.out.println(o1.getWiek());
         Osoba o2 = new Osoba("Basia", "Mazurek", "Gdansk", 19, Plec.KOBIETA);
-
         Randka r = new Randka(o1,o2);
     }
 }

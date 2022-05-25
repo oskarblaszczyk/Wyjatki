@@ -1,6 +1,7 @@
 package osoba.sklep;
 
 import osoba.sklep.exceptions.NoWomenException;
+import osoba.sklep.exceptions.ShopsAreOnlyForWomenException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,8 @@ public class Osoba {
     private String miasto;
     private int wiek;
     private Plec plec;
+    private List<Sklep> sklepy = new ArrayList<>();
+    private List<Randka> randki = new ArrayList<>();
 
     private static List<Osoba> osoby = new ArrayList<>();
 
@@ -24,6 +27,48 @@ public class Osoba {
         } catch (IllegalArgumentException e) {
             ustawWiek(18);
         }
+    }
+
+    private void ustawWiek(int wiek) {
+        if (wiek < 18) {
+            throw new IllegalArgumentException("Wiek ponizej granicy");
+        }
+        this.wiek = wiek;
+    }
+
+    public void dodajSklep(Sklep sklep) {
+        if (plec == Plec.MEZCZYZNA) {
+            throw new ShopsAreOnlyForWomenException("Tylko dla kobiet");
+        }
+        sklepy.add(sklep);
+        sklep.getOsoby().add(this);
+    }
+
+    public static Osoba najstarszaKobieta(List<Osoba> osoby) {
+        List<Osoba> kobiety = new ArrayList<>(listaKobiet(osoby));
+        if (kobiety.isEmpty()) {
+            throw new NoWomenException("Brak Kobiet");
+        }
+        Osoba najstarsza = kobiety.get(0);
+        for (Osoba o : kobiety) {
+            if (o.getWiek() > najstarsza.getWiek()) {
+                najstarsza = o;
+            }
+        }
+        return najstarsza;
+    }
+
+    private static List<Osoba> listaKobiet(List<Osoba> osoby) {
+        if (osoby == null) {
+            throw new NoWomenException("Brak Kobiet");
+        }
+        List<Osoba> kobiety = new ArrayList<>();
+        for (Osoba o : osoby) {
+            if (o.plec == Plec.KOBIETA) {
+                kobiety.add(o);
+            }
+        }
+        return kobiety;
     }
 
     public String getImie() {
@@ -66,25 +111,10 @@ public class Osoba {
         this.plec = plec;
     }
 
-    public static Osoba najstarszaKobieta(List<Osoba> osoby) {
-        if (osoby == null || osoby.isEmpty()) {
-            throw new NoWomenException("Brak Kobiet");
-        }
-        Osoba najstarsza = osoby.get(0);
-        for (Osoba o : osoby) {
-            if (o.getWiek() > najstarsza.getWiek()) {
-                najstarsza = o;
-            }
-        }
-        return najstarsza;
+    public List<Randka> getRandki() {
+        return randki;
     }
 
-    private void ustawWiek(int wiek) {
-        if (wiek < 18) {
-            throw new IllegalArgumentException("Wiek ponizej granicy");
-        }
-        this.wiek = wiek;
-    }
 
     @Override
     public String toString() {
